@@ -1,0 +1,28 @@
+﻿@model Database_3.Models.Product
+@{
+	ViewBag.Title = "Create";
+}
+
+<h2>Add New Product</h2>
+
+<!--Error synthesis-->
+@Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+@using (Html.BeginForm("Create", "Products", FormMethod.Post))
+{
+	<div class="form-group">
+		@Html.LabelFor(p => p.ProName)
+		@Html.TextBoxFor(p => p.ProName, new { @class = "form-control" })
+		@Html.ValidationMessageFor(p => p.ProName, "", new { @class = "text-danger" })
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(p => p.Price)
+		@Html.TextBoxFor(p => p.Price, new { @class = "form-control" })
+		@Html.ValidationMessageFor(p => p.Price, "", new { @class = "text-danger" })
+	</div>
+	<button type="submit" class="btn btn-primary">Create</button>
+
+
+}
+
+
